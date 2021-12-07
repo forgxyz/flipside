@@ -1,0 +1,1 @@
+select * from {{ source('terra_sv', 'msg_events') }}
