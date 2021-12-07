@@ -1,2 +1,2 @@
 # flipside
-Query repository for work done with Flipside Crypto
+dbt Model repository for work done with Flipside Crypto
