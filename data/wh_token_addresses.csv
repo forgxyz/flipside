@@ -1,4 +1,4 @@
-token_contract_address,name,asset_chain,decimals
+ADDRESS,NAME,ASSET_CHAIN,DECIMALS
 terra103c6z8jq8s2yszvxj9mpah0jlvky2pek54f2yg,wh,1,8
 terra127ww0al7uj9vyg7cv2gtcqenhrjzlnq5vaq6dh,whUST,5,8
 terra132zppkzw88j35hpwxkrpzymujekky3wcuru65n,whATOM,4,8
@@ -37,3 +37,11 @@ terra1xu3nyee55dfe5vxqtg9m4rkex8u2t6n2etl08h,whUSDT,5,6
 terra1yljlrxvkar0c6ujpvf8g57m5rpcwl7r032zyvu,whUSDC,4,8
 terra1zmclyfepfmqvfqflu8r3lv6f75trmg05z7xq95,whDAI,2,8
 terra1ukmck39pkrhljc0my0hw7yu0quarncajcqyfz8,whCake-LP,4,8
+terra1j5xfzqqznn77jm4d7pwcxcqzfv55dnrw5fak08,whDAF,4,6
+terra159cf50ty8vd9y9mnw8k2lenmtyr4rhfrpp3wkd,whbDAF,4,8
+terra15vldmsfhssrjdrwyx5e03fargvh403mcdwqvk9,whSCRT,4,8
+terra19th22mng47zxe9ndrtvd470fjkn7n7ymmn28mr,whSARCO,2,8
+terra169edevav3pdrtjcx35j6pvzuv54aevewar4nlh,whXDEFI,2,8
+terra1dhdecery0en6cdkz5zq42jhcyzgs4xpxs5d5kq,whDAI,5,8
+terra1qg5hdhat9t0vm8hhentn28s5phq4q982m7mf2m,whWBTC,5,8
+terra1xvqlpjl2dxyel9qrp6qvtrg04xe3jh9cyxc6av,whCAKE,4,8
