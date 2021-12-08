@@ -20,6 +20,7 @@ parse_attributes as (
 
     select
         block_timestamp,
+        tx_id,
         event_attributes:"1_contract_address" as token_address,
         event_attributes:"0_amount" as amount_raw,
         event_attributes:recipient as recipient
@@ -31,10 +32,10 @@ final as (
 
     select
         parse_attributes.block_timestamp,
-        parse_attributes.token_address,
-        parse_attributes.amount_raw,
-        parse_attributes.amount_raw / tokens.decimals as amount_adj,
+        parse_attributes.amount_raw / pow(10, tokens.decimals) as amount,
+        tx_id,
         parse_attributes.recipient,
+        parse_attributes.token_address,
         tokens.symbol,
         tokens.chain_name as source_chain
     from parse_attributes join tokens using (token_address)
