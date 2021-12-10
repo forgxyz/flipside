@@ -36,9 +36,12 @@ models:
     terra:
         wormhole:
             +materialized: table
+        chai:
+            +materialized: table
     staging:
         +materialized: view
         terra:
             anchor:
             wormhole:
+            chai:
       
