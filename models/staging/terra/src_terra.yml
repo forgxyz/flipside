@@ -11,3 +11,8 @@ sources:
         - name: msg_events
         - name: transactions
         - name: transitions
+    - name: terra
+      database: flipside
+      schema: terra
+      tables:
+        - name: transfers
