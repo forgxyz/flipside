@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+    - name: forgash
+      database: community
+      schema: forgash
+      tables:
+        - name: src_ust_terra_transfers
