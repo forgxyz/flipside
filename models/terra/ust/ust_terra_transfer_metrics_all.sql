@@ -2,7 +2,7 @@
 
     config(
         materialized='incremental',
-        tags=['ust', 'stablecoins', 'aggregation']
+        tags=['ust', 'stablecoins', 'transfers', 'aggregation']
     )
 
 }}
@@ -10,13 +10,13 @@
 with
 ust_transfer_metrics as (
 
-    select * from {{ ref('ust_transfer_metrics') }}
+    select * from {{ ref('ust_terra_transfer_metrics') }}
 
 ),
 
 ust_transfer_user_metrics as (
 
-    select * from {{ ref('ust_transfer_user_metrics') }}
+    select * from {{ ref('ust_terra_transfer_user_metrics') }}
 
 ),
 

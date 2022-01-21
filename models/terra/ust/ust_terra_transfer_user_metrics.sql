@@ -2,7 +2,7 @@
 
     config(
         materialized='view',
-        tags=['ust', 'stablecoins', 'aggregation']
+        tags=['ust', 'stablecoins', 'transfers', 'aggregation']
     )
 
 }}
@@ -10,7 +10,7 @@
 with
 ust_transfers as (
   
-    select * from {{ ref('stg_ust_transfers') }}
+    select * from {{ ref('stg_ust_terra_transfers') }}
   
 ),
 

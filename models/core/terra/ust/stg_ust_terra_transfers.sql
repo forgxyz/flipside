@@ -2,7 +2,7 @@
     config(
         materialized='incremental',
         unique_key='tx_id',
-        tags=['core', 'ust', 'stablecoin'],
+        tags=['core', 'ust', 'stablecoin', 'transfers'],
         cluster_by=['block_timestamp']
     )
 }}
@@ -17,7 +17,8 @@ ust_transfers as (
         *
 
     from {{ source('terra', 'transfers') }}
-    where event_currency = 'UST'
+    where {{ incremental_load_filter("block_timestamp") }}
+    and event_currency = 'UST'
 
 )
 

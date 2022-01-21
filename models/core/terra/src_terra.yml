@@ -16,3 +16,4 @@ sources:
       schema: terra
       tables:
         - name: transfers
+        - name: swaps
