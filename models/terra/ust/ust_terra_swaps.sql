@@ -20,8 +20,7 @@ buys as (
     select * from {{ ref('ust_terra_swaps_buy') }}
 
 ),
--- ISSUE / TODO
--- duplicate column names ...
+
 final as (
 
     select * from sells

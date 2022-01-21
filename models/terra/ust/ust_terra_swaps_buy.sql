@@ -21,11 +21,11 @@ buy_swaps as (
     select 
 
         date_trunc('d', block_timestamp) as date,
-        avg(token_0_amount) as avg_amount,
-        sum(token_0_amount) as gross_amount,
-        min(token_0_amount) as min_amount,
-        max(token_0_amount) as max_amount,
-        median(token_0_amount) as median_amount
+        avg(token_0_amount) as buy_avg_amount,
+        sum(token_0_amount) as buy_gross_amount,
+        min(token_0_amount) as buy_min_amount,
+        max(token_0_amount) as buy_max_amount,
+        median(token_0_amount) as buy_median_amount
 
     from ust_swaps
     group by 1
@@ -38,7 +38,7 @@ final as (
     select
 
         *,
-        avg(gross_amount) over (order by date rows between 6 preceding and current row) as gross_amount_ma
+        avg(buy_gross_amount) over (order by date rows between 6 preceding and current row) as buy_gross_amount_ma
         
     from buy_swaps
 
