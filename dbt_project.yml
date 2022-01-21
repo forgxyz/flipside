@@ -33,15 +33,4 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   flipside_forgash:
-    terra:
-        wormhole:
-            +materialized: table
-        chai:
-            +materialized: table
-    staging:
-        +materialized: view
-        terra:
-            anchor:
-            wormhole:
-            chai:
       
