@@ -17,3 +17,4 @@ sources:
       tables:
         - name: transfers
         - name: swaps
+        - name: daily_balances
