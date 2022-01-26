@@ -18,8 +18,8 @@ aggregations as (
         date_trunc('d', block_timestamp) as date,
         sum(amount) as gross_deposit_amount,
         avg(amount) as avg_deposit,
-        min(amount) / pow(10,6) as min_deposit,
-        max(amount) / pow(10,6) as max_deposit,
+        min(amount) as min_deposit,
+        max(amount) as max_deposit,
         count(1) as deposit_tx_count
 
     from deposits
