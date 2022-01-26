@@ -19,7 +19,7 @@ final as (
         tx_id,
         chain_id,
         event_attributes:redeem_amount::float / pow(10,6) as redemption_amount,
-        event_attributes:"0_from" as user_address
+        event_attributes:"0_from"::string as user_address
 
     from redemptions
 

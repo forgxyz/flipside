@@ -19,7 +19,7 @@ final as (
         tx_id,
         chain_id,
         msg_value:coins[0]:amount::float / pow(10,6) as amount,
-        msg_value:sender as user_address
+        msg_value:sender::string as user_address
 
     from deposits
 

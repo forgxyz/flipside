@@ -18,9 +18,9 @@ aggregations as (
 
         date_trunc('d', block_timestamp) as date,
         sum(redemption_amount) as gross_redemption_amount,
-        avg(redemption_amount) / pow(10,6) as avg_redemption,
-        min(redemption_amount) / pow(10,6) as min_redemption,
-        max(redemption_amount) / pow(10,6) as max_redemption,
+        avg(redemption_amount) as avg_redemption,
+        min(redemption_amount) as min_redemption,
+        max(redemption_amount) as max_redemption,
         count(1) as redemption_tx_count
 
     from redemptions
