@@ -8,7 +8,7 @@
 with daily_bluna_change as (
 
     select * from {{ ref('anchor_borrow_net_daily_bluna') }}
-
+    
 ),
 
 luna_price as (

@@ -1,13 +1,13 @@
 {{
     config(
         materialized='table',
-        tags=['anchor','borrow','collateral','bluna']
+        tags=['anchor','borrow','collateral']
     )
 }}
 
-with bluna_txs as (
+with b_txs as (
 
-    select * from {{ ref('stg_anchor_borrow_bluna_deposit_txs') }}
+    select * from {{ ref('stg_anchor_borrow_collateral_deposit_txs') }}
 
 ),
 
@@ -20,10 +20,10 @@ tx_info as (
         tx_id,
         msg_value:execute_msg:send:amount::float / pow(10,6) as amount,
         msg_value:sender::string as sender,
-        'bluna' as collateral,
+        msg_value:execute_msg:send:contract::string as collateral,
         'deposit' as action
 
-    from bluna_txs
+    from b_txs
 
 )
 

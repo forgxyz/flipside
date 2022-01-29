@@ -1,21 +1,21 @@
 {{
     config(
         materialized='table',
-        tags=['anchor','collateral','bluna']
+        tags=['anchor','collateral','beth']
     )
 }}
 
-with bluna_actions as (
+with beth_actions as (
 
     select * from {{ ref('anchor_borrow_collateral_actions') }}
-    where collateral = 'terra1ptjp2vfjrwh0j0faj9r6katm640kgjxnwwq9kn' -- bLUNA
-
+    where collateral = 'terra10cxuzggyvvv44magvrh3thpdnk9cmlgk93gmx2' -- bETH
+    
 ),
 
 liquidations as (
 
     select * from {{ ref('anchor_daily_liquidations') }}
-    where collateral_contract = 'terra1ptjp2vfjrwh0j0faj9r6katm640kgjxnwwq9kn' --bLUNA
+    where collateral_contract = 'terra10cxuzggyvvv44magvrh3thpdnk9cmlgk93gmx2' --bETH
 
 ),
 
@@ -30,7 +30,7 @@ net_daily_action as (
             when action = 'withdraw' then amount
         end as withdraw_amount
     
-    from bluna_actions
+    from beth_actions
 
 ),
 
@@ -65,7 +65,7 @@ add_liquidations as (
         actions.gross_deposit,
         actions.gross_withdraw,
         actions.net_borrower_action,
-        coalesce(liquidations.gross_liquidated,0) as gross_bluna_liquidated
+        coalesce(liquidations.gross_liquidated,0) as gross_beth_liquidated
         
 
     from actions
@@ -78,7 +78,7 @@ final_daily_change as (
     select
 
         *,
-        net_borrower_action - gross_bluna_liquidated as daily_change
+        net_borrower_action - gross_beth_liquidated as daily_change
 
     from add_liquidations
 
@@ -89,7 +89,7 @@ final as (
     select
 
         *,
-        sum(daily_change) over (order by date) as cumulative_bluna
+        sum(daily_change) over (order by date) as cumulative_beth
     
     from final_daily_change
 
