@@ -18,3 +18,4 @@ sources:
         - name: transfers
         - name: swaps
         - name: daily_balances
+        - name: oracle_prices
