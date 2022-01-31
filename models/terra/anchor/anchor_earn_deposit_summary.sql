@@ -20,6 +20,7 @@ aggregations as (
         avg(amount) as avg_deposit,
         min(amount) as min_deposit,
         max(amount) as max_deposit,
+        median(amount) as median_deposit,
         count(1) as deposit_tx_count
 
     from deposits
@@ -35,6 +36,7 @@ final as (
         avg(avg_deposit) over (order by date rows between 6 preceding and current row) as avg_deposit_ma,
         avg(max_deposit) over (order by date rows between 6 preceding and current row) as max_deposit_ma,
         avg(min_deposit) over (order by date rows between 6 preceding and current row) as min_deposit_ma,
+        avg(median_deposit) over (order by date rows between 6 preceding and current row) as median_deposit_ma,
         avg(deposit_tx_count) over (order by date rows between 6 preceding and current row) as deposit_tx_count_ma
 
     from aggregations
