@@ -21,6 +21,7 @@ aggregations as (
         avg(redemption_amount) as avg_redemption,
         min(redemption_amount) as min_redemption,
         max(redemption_amount) as max_redemption,
+        median(redemption_amount) as median_redemption,
         count(1) as redemption_tx_count
 
     from redemptions
@@ -32,11 +33,12 @@ final as (
 
     select
         *,
-        sum(gross_redemption_amount) over (order by date) as cumulative_gross_redemption_amount,
-        sum(avg_redemption) over (order by date rows between 6 preceding and current row) as avg_redemption_ma,
-        sum(max_redemption) over (order by date rows between 6 preceding and current row) as max_redemption_ma,
-        sum(min_redemption) over (order by date rows between 6 preceding and current row) as min_redemption_ma,
-        sum(redemption_tx_count) over (order by date rows between 6 preceding and current row) as redemption_tx_count_ma
+        avg(gross_redemption_amount) over (order by date) as cumulative_gross_redemption_amount,
+        avg(avg_redemption) over (order by date rows between 6 preceding and current row) as avg_redemption_ma,
+        avg(max_redemption) over (order by date rows between 6 preceding and current row) as max_redemption_ma,
+        avg(min_redemption) over (order by date rows between 6 preceding and current row) as min_redemption_ma,
+        avg(median_redemption) over (order by date rows between 6 preceding and current row) as median_redemption_ma,
+        avg(redemption_tx_count) over (order by date rows between 6 preceding and current row) as redemption_tx_count_ma
 
     from aggregations
 
