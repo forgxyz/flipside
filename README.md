@@ -15,3 +15,4 @@ example: https://finder.extraterrestrial.money/mainnet/tx/4340019B042341553FA04E
 
 #### Collateral
 - nexus. their collateral deposit messages are messy and i need to add a model for those transactions. bLUNA tracks within 1.5% of Anchor's own app and bETH around 4.5% so the present gap is not massively impactful.
+- summary stats just like earn
