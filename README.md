@@ -2,12 +2,17 @@
 dbt models for analysis work
 
 ## TODO
+and / or known issues
+
+### General
+- clean out old models
+- check if tables are really faster than views
+- document & add tests
 
 ### Anchor
 
 #### Earn
 - check anchor earn redemption transactions for col4 - col-5 compatability wrt user address
-- add yml files and tests
 
 #### Liquidations
 - reconfigure to account for multi-liquidation bids
